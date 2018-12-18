@@ -24,7 +24,7 @@ public class Program {
 		for (int i = 0; i < 1000; i++) {
 			System.out.println();
 		}
-		System.out.printf("You have %d lifes\n", lifes);
+		
 		System.out.println("This is the word:");
 		for (int i = 0; i < userResult.length; i++) {
 			System.out.print(userResult[i] + " ");
@@ -33,8 +33,36 @@ public class Program {
 
 		int count = 0;
 		boolean stop = false;
-		do {
-			if ((lifes == 1) || (count == userWordLength - 1)) {
+//		do {
+//			if ((lifes == 0) || (count == userWordLength - 1)) {
+//				stop = true;
+//			}
+//			System.out.print("Insert a letter: ");
+//			String letter = scan.nextLine().toUpperCase();
+//
+//			if (userWord.contains(letter)) {
+//				for (int i = 0; i < userResult.length; i++) {
+//					if (letter.equalsIgnoreCase(wordInArray[i])) {
+//						userResult[i] = letter;
+//						count++;
+//					}
+//				}
+//			} else {
+//				lifes--;
+//			}
+//
+//			for (int i = 0; i < userResult.length; i++) {
+//				System.out.print(userResult[i] + " ");
+//			}
+//			System.out.println("");
+//
+//			System.out.printf("You have %d lifes\n", lifes);
+//
+//		} while (stop == false);
+
+		while (stop == false) {
+			System.out.printf("You have %d lifes\n", lifes);
+			if ((lifes == 0) || (count == userWordLength - 1)) {
 				stop = true;
 			}
 			System.out.print("Insert a letter: ");
@@ -55,10 +83,11 @@ public class Program {
 				System.out.print(userResult[i] + " ");
 			}
 			System.out.println("");
-
-			System.out.printf("You have %d lifes\n", lifes);
-
-		} while (stop == false);
+		}
+		
+		if (lifes < 0) {
+			System.out.print("The word was: " + userWord);
+		}
 
 	}
 
